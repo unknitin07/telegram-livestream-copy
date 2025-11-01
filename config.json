@@ -1,19 +1,47 @@
 {
+  "_comment": "Telegram Audio Relay Configuration",
+  
   "account_a": {
-    "api_id": "YOUR_API_ID",
-    "api_hash": "YOUR_API_HASH",
+    "_comment": "Source account - listens to source voice chat",
+    "api_id": "12345678",
+    "api_hash": "abcdef1234567890abcdef1234567890",
     "phone": "+1234567890",
     "session_name": "account_a"
   },
+  
   "account_b": {
-    "api_id": "YOUR_API_ID",
-    "api_hash": "YOUR_API_HASH",
+    "_comment": "Target account - broadcasts to target voice chat",
+    "api_id": "12345678",
+    "api_hash": "abcdef1234567890abcdef1234567890",
     "phone": "+0987654321",
     "session_name": "account_b"
   },
+  
   "source_chat_id": -1001234567890,
+  "_source_chat_comment": "Source voice chat ID (where audio is captured from)",
+  
   "target_chat_id": -1009876543210,
+  "_target_chat_comment": "Target voice chat ID (where audio is streamed to)",
+  
   "buffer_size": 50,
+  "_buffer_comment": "Audio buffer size (25-100). Lower = less latency, Higher = more stable",
+  
   "reconnect_delay": 5,
-  "max_reconnect_attempts": 10
+  "_reconnect_delay_comment": "Seconds to wait before reconnecting (3-10 recommended)",
+  
+  "max_reconnect_attempts": 10,
+  "_max_reconnect_comment": "Maximum reconnection attempts before giving up (10-20 recommended)",
+  
+  "_instructions": {
+    "getting_api_credentials": "Visit https://my.telegram.org to get api_id and api_hash",
+    "getting_chat_ids": [
+      "Method 1: Forward message to @userinfobot",
+      "Method 2: Add @raw_data_bot to your group",
+      "Note: Group/channel IDs start with -100"
+    ],
+    "same_api_credentials": "You can use the same api_id and api_hash for both accounts",
+    "different_phones": "Both accounts must use different phone numbers",
+    "permissions": "Both accounts need permission to join the voice chats",
+    "after_setup": "Run 'python login.py' to create session files"
+  }
 }
